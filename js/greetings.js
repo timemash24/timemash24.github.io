@@ -1,3 +1,5 @@
+// 사용자 로그인 기능과 환영 멘트
+
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
 const loginResult = document.querySelector("#login-result");
@@ -5,6 +7,7 @@ const greeting = document.querySelector("#greeting");
 const logoutBtn = document.querySelector("#logout-btn");
 
 const HIDDEN_CLASSNAME = "hidden";
+const MIDDLE_CLASSNAME = "middle_menu";
 const USERNAME_KEY = "username";
 
 // 로그인 버튼 동작
@@ -20,11 +23,12 @@ function onLoginSubmit(event) {
 function paintGreetings(username) {
   greeting.innerText = `창 밖을 봐, 
   ${username}`;
+  loginResult.classList.remove(HIDDEN_CLASSNAME);
   greeting.classList.remove(HIDDEN_CLASSNAME);
   logoutBtn.classList.remove(HIDDEN_CLASSNAME);
 }
 
-// 로그인 정보 있을 경우
+// 로그인 정보 확인 후 동작
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 if (!savedUsername) {
   loginForm.classList.remove(HIDDEN_CLASSNAME);
@@ -40,6 +44,7 @@ function onLogoutClick() {
   loginInput.value = "";
   greeting.classList.add(HIDDEN_CLASSNAME);
   logoutBtn.classList.add(HIDDEN_CLASSNAME);
+  loginResult.classList.add(HIDDEN_CLASSNAME);
   loginForm.classList.remove(HIDDEN_CLASSNAME);
 }
 

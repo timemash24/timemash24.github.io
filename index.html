@@ -8,31 +8,41 @@
     <title>Momentum App</title>
   </head>
   <body>
-    <h1 class="left_menu" id="clock">00:00:00</h1>
-    <div class="left_menu" id="weather">
-      <span></span>
-      <span></span>
+    <div class="middle_menu">
+      <img id="window-img" src="img/window.png" />
+      <form class="hidden" id="login-form">
+        <input
+          class="text_input"
+          required
+          maxlength="15"
+          type="text"
+          placeholder="이름을 알려줘"
+        />
+        <input class="button_simple" type="submit" value="LOG IN" />
+      </form>
+      <div class="hidden" id="login-result">
+        <h1 class="hidden" id="greeting"></h1>
+        <button class="hidden button_simple" id="logout-btn">LOG OUT</button>
+      </div>
+      <form id="tag-form">
+        #<input type="text" placeholder="저 바깥에는 뭐가 있을까?" />
+      </form>
     </div>
-    <form class="hidden" id="login-form">
-      <input
-        required
-        maxlength="15"
-        type="text"
-        placeholder="What is your name?"
-      />
-      <input type="submit" value="Log In" />
-    </form>
-    <div id="login-result">
-      <h1 class="hidden" id="greeting"></h1>
-      <button class="hidden" id="logout-btn">Log out</button>
-    </div>
-    <div class="left_menu" id="quote">
-      <span></span>
-      <span></span>
+    <div class="left_menu">
+      <h1 id="clock">00:00:00</h1>
+      <div id="weather">
+        <span></span>
+        <span></span>
+      </div>
+      <div id="quote">
+        <span></span>
+        <span></span>
+      </div>
     </div>
     <div class="right_menu">
       <form id="todo-form">
         <input
+          class="text_input"
           required
           type="text"
           placeholder="할 일을 입력하고 Enter를 누르세요"

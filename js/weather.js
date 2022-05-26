@@ -1,3 +1,5 @@
+// openweather API로 날씨 불러오기
+
 const weather = document.querySelector("#weather span:first-child");
 const city = document.querySelector("#weather span:last-child");
 const API_KEY = config.apikey;
@@ -10,8 +12,10 @@ function onGeoOk(position) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      weather.innerText = `* ${data.weather[0].main} * 
-      ${Math.round(data.main.temp)}`;
+      weather.innerText = `* ${data.weather[0].main} * ${Math.round(
+        data.main.temp
+      )}°C
+      `;
       city.innerText = data.name;
     });
 }
